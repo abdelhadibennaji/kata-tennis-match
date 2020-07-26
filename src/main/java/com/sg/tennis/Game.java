@@ -23,17 +23,23 @@ public class Game {
         return this.scoreSecondPlayer.getScore();
     }
 
-    public void winPoint(Player player) {
-        if(player.equals(scoreFirstPlayer.getPlayer())) {
+    public void winPoint(Player winnerPlayer) {
+        changeScoreForThePlayerWinPoint(winnerPlayer);
+        activateDeuceRuleIfTheTwoPlayersReachForty();
+    }
+
+    private void changeScoreForThePlayerWinPoint(Player winnerPlayer){
+        if(winnerPlayer.equals(scoreFirstPlayer.getPlayer())) {
             scoreFirstPlayer.changeScore();
-        }else if(player.equals(scoreSecondPlayer.getPlayer())){
+        }else if(winnerPlayer.equals(scoreSecondPlayer.getPlayer())){
             scoreSecondPlayer.changeScore();
         }
+    }
 
+    private void activateDeuceRuleIfTheTwoPlayersReachForty(){
         if(Score.FORTY.equals(scoreFirstPlayer.getScore()) && Score.FORTY.equals(scoreSecondPlayer.getScore())){
             scoreFirstPlayer.activateDeuceRule();
             scoreSecondPlayer.activateDeuceRule();
         }
-
     }
 }

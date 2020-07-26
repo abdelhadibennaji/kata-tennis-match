@@ -124,4 +124,22 @@ public class GameTest {
         assertEquals(Score.WIN, game.getScoreFirstPlayer());
         assertEquals(Score.DEUCE, game.getScoreSecondPlayer());
     }
+
+    @Test
+    public void If_the_player_who_has_the_ADVANTAGE_loose_the_point_the_score_is_DEUCE() {
+        //GIVEN
+        Game game = Game.start(this.firstPlayer, this.secondPlayer);
+        //WHEN
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.secondPlayer);
+        //THEN
+        assertEquals(Score.DEUCE, game.getScoreFirstPlayer());
+        assertEquals(Score.DEUCE, game.getScoreSecondPlayer());
+    }
 }

@@ -25,6 +25,6 @@ public class ScorePlayer {
     }
 
     public void changeScore() {
-        this.score = Score.FIFTEEN;
+        this.score = this.score.getNext();
     }
 }

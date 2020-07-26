@@ -61,4 +61,16 @@ public class GameTest {
         assertEquals(Score.FORTY, game.getScoreFirstPlayer());
     }
 
+    @Test
+    public void the_game_score_should_be_win_if_the_player_wins_four_points() {
+        //GIVEN
+        Game game = Game.start(this.firstPlayer, this.secondPlayer);
+        //WHEN
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        //THEN
+        assertEquals(Score.WIN, game.getScoreFirstPlayer());
+    }
+
 }

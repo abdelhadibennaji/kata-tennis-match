@@ -4,16 +4,14 @@ public class ScorePlayer {
 
     private Player player;
 
-    private Score score;
+    private Score score = Score.ZERO;
 
     private ScorePlayer(Player player) {
         this.player = player;
     }
 
     public static ScorePlayer init(Player player) {
-        ScorePlayer scorePlayer = new ScorePlayer(player);
-        scorePlayer.score = Score.ZERO;
-        return scorePlayer;
+        return new ScorePlayer(player);
     }
 
     public Player getPlayer() {

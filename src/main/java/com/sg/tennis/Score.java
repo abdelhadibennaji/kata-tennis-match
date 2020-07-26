@@ -6,7 +6,8 @@ public enum Score {
     THIRTY,
     FORTY,
     WIN,
-    DEUCE;
+    DEUCE,
+    ADVANTAGE;
 
     public Score getNext() {
         return this.ordinal() < Score.values().length - 1

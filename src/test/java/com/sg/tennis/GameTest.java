@@ -28,7 +28,7 @@ public class GameTest {
         //WHEN
         game.winPoint(firstPlayer);
         //THEN
-        assertEquals(15, game.getScoreFirstPlayer());
+        assertEquals(Score.FIFTEEN, game.getScoreFirstPlayer());
     }
 
 }

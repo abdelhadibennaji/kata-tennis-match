@@ -25,4 +25,8 @@ public class ScorePlayer {
     public void changeScore() {
         this.score = this.score.getNext();
     }
+
+    public void activateDeuceRule() {
+        this.score = Score.DEUCE;
+    }
 }

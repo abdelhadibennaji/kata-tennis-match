@@ -5,11 +5,13 @@ public enum Score {
     FIFTEEN,
     THIRTY,
     FORTY,
-    WIN;
+    WIN,
+    DEUCE,
+    ADVANTAGE;
 
     public Score getNext() {
         return this.ordinal() < Score.values().length - 1
                 ? Score.values()[this.ordinal() + 1]
-                : null;
+                : WIN;
     }
 }

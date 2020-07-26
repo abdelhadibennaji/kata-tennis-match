@@ -74,4 +74,72 @@ public class GameTest {
         assertEquals(Score.WIN, game.getScoreFirstPlayer());
     }
 
+    @Test
+    public void If_the_2_players_reach_the_score_40_the_DEUCE_rule_is_activated() {
+        //GIVEN
+        Game game = Game.start(this.firstPlayer, this.secondPlayer);
+        //WHEN
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        //THEN
+        assertEquals(Score.DEUCE, game.getScoreFirstPlayer());
+        assertEquals(Score.DEUCE, game.getScoreSecondPlayer());
+    }
+
+    @Test
+    public void If_the_score_is_DEUCE_the_player_who_win_the_point_take_the_ADVANTAGE() {
+        //GIVEN
+        Game game = Game.start(this.firstPlayer, this.secondPlayer);
+        //WHEN
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.firstPlayer);
+        //THEN
+        assertEquals(Score.ADVANTAGE, game.getScoreFirstPlayer());
+        assertEquals(Score.DEUCE, game.getScoreSecondPlayer());
+    }
+
+    @Test
+    public void If_the_player_who_has_the_ADVANTAGE_win_the_point_he_win_the_game() {
+        //GIVEN
+        Game game = Game.start(this.firstPlayer, this.secondPlayer);
+        //WHEN
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        //THEN
+        assertEquals(Score.WIN, game.getScoreFirstPlayer());
+        assertEquals(Score.DEUCE, game.getScoreSecondPlayer());
+    }
+
+    @Test
+    public void If_the_player_who_has_the_ADVANTAGE_loose_the_point_the_score_is_DEUCE() {
+        //GIVEN
+        Game game = Game.start(this.firstPlayer, this.secondPlayer);
+        //WHEN
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.secondPlayer);
+        //THEN
+        assertEquals(Score.DEUCE, game.getScoreFirstPlayer());
+        assertEquals(Score.DEUCE, game.getScoreSecondPlayer());
+    }
 }

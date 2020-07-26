@@ -29,11 +29,8 @@ public class Game {
     }
 
     private void changeScoreForThePlayerWinPoint(Player winnerPlayer){
-        if(winnerPlayer.equals(scoreFirstPlayer.getPlayer())) {
-            scoreFirstPlayer.changeScore();
-        }else if(winnerPlayer.equals(scoreSecondPlayer.getPlayer())){
-            scoreSecondPlayer.changeScore();
-        }
+        ScorePlayer scoreWinnerPlayer = winnerPlayer.equals(scoreFirstPlayer.getPlayer()) ? scoreFirstPlayer : scoreSecondPlayer;
+        scoreWinnerPlayer.changeScore();
     }
 
     private void activateDeuceRuleIfTheTwoPlayersReachForty(){

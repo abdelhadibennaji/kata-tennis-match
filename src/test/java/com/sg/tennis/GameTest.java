@@ -69,6 +69,7 @@ public class GameTest {
         game.winPoint(this.firstPlayer);
         game.winPoint(this.firstPlayer);
         game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
         //THEN
         assertEquals(Score.WIN, game.getScoreFirstPlayer());
     }

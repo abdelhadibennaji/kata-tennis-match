@@ -2,17 +2,13 @@ package com.sg.tennis;
 
 public class Game {
 
-    private Score scoreFirstPlayer = Score.ZERO;
+    private ScorePlayer scoreFirstPlayer;
 
-    private Score scoreSecondPlayer = Score.ZERO;
-
-    private Player firstPlayer;
-
-    private Player secondPlayer;
+    private ScorePlayer scoreSecondPlayer;
 
     private Game(Player firstPlayer, Player secondPlayer) {
-        this.firstPlayer = firstPlayer;
-        this.secondPlayer = secondPlayer;
+        scoreFirstPlayer = ScorePlayer.init(firstPlayer);
+        scoreSecondPlayer = ScorePlayer.init(secondPlayer);
     }
 
     public static Game start(Player firstPlayer, Player secondPlayer) {
@@ -20,18 +16,18 @@ public class Game {
     }
 
     public Score getScoreFirstPlayer() {
-        return this.scoreFirstPlayer;
+        return this.scoreFirstPlayer.getScore();
     }
 
     public Score getScoreSecondPlayer() {
-        return this.scoreSecondPlayer;
+        return this.scoreSecondPlayer.getScore();
     }
 
     public void winPoint(Player player) {
-        if(player.equals(firstPlayer)) {
-            this.scoreFirstPlayer = Score.FIFTEEN;
-        }else if(player.equals(secondPlayer)){
-            this.scoreSecondPlayer = Score.FIFTEEN;
+        if(player.equals(scoreFirstPlayer.getPlayer())) {
+            scoreFirstPlayer.changeScore();
+        }else if(player.equals(scoreSecondPlayer.getPlayer())){
+            scoreSecondPlayer.changeScore();
         }
     }
 }

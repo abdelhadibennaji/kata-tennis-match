@@ -29,5 +29,11 @@ public class Game {
         }else if(player.equals(scoreSecondPlayer.getPlayer())){
             scoreSecondPlayer.changeScore();
         }
+
+        if(Score.FORTY.equals(scoreFirstPlayer.getScore()) && Score.FORTY.equals(scoreSecondPlayer.getScore())){
+            scoreFirstPlayer.activateDeuceRule();
+            scoreSecondPlayer.activateDeuceRule();
+        }
+
     }
 }

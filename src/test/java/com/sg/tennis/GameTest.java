@@ -15,7 +15,7 @@ public class GameTest {
         Game game = Game.start(firstPlayer, secondPlayer);
 
         //THEN
-        assertEquals(0,game.getScoreFirstPlayer());
-        assertEquals(0, game.getScoreSecondPlayer());
+        assertEquals(Score.ZERO,game.getScoreFirstPlayer());
+        assertEquals(Score.ZERO, game.getScoreSecondPlayer());
     }
 }

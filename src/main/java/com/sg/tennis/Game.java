@@ -9,11 +9,11 @@ public class Game {
         return new Game(firstPlayer, secondPlayer);
     }
 
-    public int getScoreFirstPlayer() {
-        return 0;
+    public Score getScoreFirstPlayer() {
+        return Score.ZERO;
     }
 
-    public int getScoreSecondPlayer() {
-        return 0;
+    public Score getScoreSecondPlayer() {
+        return Score.ZERO;
     }
 }

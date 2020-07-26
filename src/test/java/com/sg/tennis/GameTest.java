@@ -18,4 +18,17 @@ public class GameTest {
         assertEquals(Score.ZERO,game.getScoreFirstPlayer());
         assertEquals(Score.ZERO, game.getScoreSecondPlayer());
     }
+
+    @Test
+    public void the_game_score_should_be_fifteen_if_the_player_win_one_point() {
+        //GIVEN
+        Player firstPlayer = new Player("Nadal");
+        Player secondPlayer = new Player("Federer");
+        Game game = Game.start(firstPlayer, secondPlayer);
+        //WHEN
+        game.winPoint(firstPlayer);
+        //THEN
+        assertEquals(15, game.getScoreFirstPlayer());
+    }
+
 }

@@ -34,7 +34,8 @@ public class Game {
     }
 
     private void activateDeuceRuleIfTheTwoPlayersReachForty(){
-        if(Score.FORTY.equals(scoreFirstPlayer.getScore()) && Score.FORTY.equals(scoreSecondPlayer.getScore())){
+        if((Score.FORTY.equals(scoreFirstPlayer.getScore()) && Score.FORTY.equals(scoreSecondPlayer.getScore())) ||
+                (Score.ADVANTAGE.equals(scoreFirstPlayer.getScore()) && Score.ADVANTAGE.equals(scoreSecondPlayer.getScore()))){
             scoreFirstPlayer.activateDeuceRule();
             scoreSecondPlayer.activateDeuceRule();
         }

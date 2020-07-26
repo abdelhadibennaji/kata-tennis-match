@@ -31,4 +31,17 @@ public class GameTest {
         assertEquals(Score.FIFTEEN, game.getScoreFirstPlayer());
     }
 
+    @Test
+    public void the_game_score_should_be_thirty_if_the_player_win_two_points() {
+        //GIVEN
+        Player firstPlayer = new Player("Nadal");
+        Player secondPlayer = new Player("Federer");
+        Game game = Game.start(firstPlayer, secondPlayer);
+        //WHEN
+        game.winPoint(firstPlayer);
+        game.winPoint(firstPlayer);
+        //THEN
+        assertEquals(Score.THIRTY, game.getScoreFirstPlayer());
+    }
+
 }

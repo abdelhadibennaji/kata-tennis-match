@@ -74,4 +74,20 @@ public class GameTest {
         assertEquals(Score.WIN, game.getScoreFirstPlayer());
     }
 
+    @Test
+    public void If_the_2_players_reach_the_score_40_the_DEUCE_rule_is_activated() {
+        //GIVEN
+        Game game = Game.start(this.firstPlayer, this.secondPlayer);
+        //WHEN
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.firstPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        game.winPoint(this.secondPlayer);
+        //THEN
+        assertEquals(Score.DEUCE, game.getScoreFirstPlayer());
+        assertEquals(Score.DEUCE, game.getScoreSecondPlayer());
+    }
+
 }

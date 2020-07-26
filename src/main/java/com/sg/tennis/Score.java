@@ -3,7 +3,8 @@ package com.sg.tennis;
 public enum Score {
     ZERO,
     FIFTEEN,
-    THIRTY;
+    THIRTY,
+    FORTY;
 
     public Score getNext() {
         return this.ordinal() < Score.values().length - 1

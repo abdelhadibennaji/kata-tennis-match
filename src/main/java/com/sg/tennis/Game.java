@@ -25,7 +25,7 @@ public class Game {
 
     public void winPoint(Player winnerPlayer) {
         changeScoreForThePlayerWinPoint(winnerPlayer);
-        activateDeuceRuleIfTheTwoPlayersReachForty();
+        activateDeuceRuleIfTheTwoPlayersReachFortyOrAdvantage();
     }
 
     private void changeScoreForThePlayerWinPoint(Player winnerPlayer){
@@ -33,11 +33,15 @@ public class Game {
         scoreWinnerPlayer.changeScore();
     }
 
-    private void activateDeuceRuleIfTheTwoPlayersReachForty(){
-        if((Score.FORTY.equals(scoreFirstPlayer.getScore()) && Score.FORTY.equals(scoreSecondPlayer.getScore())) ||
-                (Score.ADVANTAGE.equals(scoreFirstPlayer.getScore()) && Score.ADVANTAGE.equals(scoreSecondPlayer.getScore()))){
+    private void activateDeuceRuleIfTheTwoPlayersReachFortyOrAdvantage(){
+        if(areTheTwoPlayersReachFortyOrAdvantage()){
             scoreFirstPlayer.activateDeuceRule();
             scoreSecondPlayer.activateDeuceRule();
         }
+    }
+
+    private boolean areTheTwoPlayersReachFortyOrAdvantage(){
+        return (Score.FORTY.equals(scoreFirstPlayer.getScore()) && Score.FORTY.equals(scoreSecondPlayer.getScore())) ||
+                (Score.ADVANTAGE.equals(scoreFirstPlayer.getScore()) && Score.ADVANTAGE.equals(scoreSecondPlayer.getScore()));
     }
 }
